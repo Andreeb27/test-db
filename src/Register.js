@@ -33,7 +33,10 @@ function Register() {
         try {
             const user = await createUserWithEmailAndPassword(auth, registerEmail, registerPassword);
 
-            await addDoc(usersCollectionRef, { firstName: firstName, lastName: lastName, email: email, password: password })
+            const currentDate = new Date();
+            const userName = firstName.charAt(0).toLowerCase() + lastName.toLowerCase() + currentDate.getFullYear().toString().substring(2);
+
+            await addDoc(usersCollectionRef, { firstName: firstName, lastName: lastName, username: userName, email: email, password: password })
 
         } catch (error) {
             console.log(error.message)
