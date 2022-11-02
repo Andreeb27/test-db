@@ -5,6 +5,7 @@ import Login from './Login';
 import Main from './Main';
 import Home from './Home';
 import Register from './Register';
+import Admin from './Admin'
 import UserConfig from './UserConfig';
 
 import { BrowserRouter, Link, Route, Routes } from 'react-router-dom'
@@ -23,7 +24,7 @@ function App() {
           <Link to='/login'> Login </Link>
           <Link to='/main'> Main </Link>
           <Link to='/register'> Register </Link>
-          <Link to='/userconfig'>User Config</Link> 
+          <Link to='/admin'> Admin </Link>
         </nav>
 
         <Routes>
@@ -31,7 +32,7 @@ function App() {
           <Route path = '/login' element = { <Login /> } />
           <Route path = '/main' element = { <Main />} />
           <Route path = '/register' element = { <Register /> } />
-          <Route path = '/userconfig' element = { < UserConfig /> } />
+          <Route path = '/admin' element = { <Admin /> } />
         </Routes>
         
       </BrowserRouter>
