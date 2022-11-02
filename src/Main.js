@@ -31,6 +31,10 @@ function Main() {
         await deleteDoc(userDoc);
     }
 
+    const updatePassword = async() => {
+        
+    }
+
     useEffect(() => {
 
         const getUsers = async () => {
