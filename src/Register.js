@@ -1,4 +1,4 @@
-import { useState } from "react";
+import  useState  from "react";
 import { createUserWithEmailAndPassword, onAuthStateChanged, signOut } from 'firebase/auth'
 import { auth, metadata } from './firebase'
 import { async } from "@firebase/util";
@@ -17,6 +17,7 @@ function Register() {
 
     const usersCollectionRef = collection(db, "users")
     const adminsCollectionRef = collection(db, "admins")
+    const accountsColRef = collection(db, "accounts")
 
     onAuthStateChanged(auth, (currentUser) => {
 
@@ -38,8 +39,19 @@ function Register() {
         } catch (error) {
             console.log(error.message)
         }
-
     }
+
+    const createNewAccount = async (accountCategory, accountDescription, accountName, accountNo, accountSubcategory, balance, comment, creationDate, credit, debit, initialBalance, orderNo, statement, userID) => {
+        try {
+            await addDoc(accountsColRef, { accountCategory : accountCategory, accountDescription : accountDescription, accountName : accountName, accountNo : accountNo, accountSubcategory : accountSubcategory, balance : balance,
+            comment : comment, creationDate : creationDate, credit : credit, debit : debit, initialBalance : initialBalance, orderNo : orderNo, statement : statement, userID : userID})
+
+        } catch (error) {
+            console.log(error.message)
+        }
+    }
+
+    
 
 
     return (
